@@ -3,14 +3,14 @@
 #include <string>
 using namespace std;
 string line;
-int num[1000];
+int num[100000];
 int N;
-int ori[1000];
+int ori[100000];
 int head = 0;
 int main()
 {
     cin>>N;
-    for (int i = 0 ; i < N; i++)
+    for (int q = 0 ; q < N; q++)
     {
         for (int i= 0 ; i < 1000; i++)
         {
@@ -31,27 +31,27 @@ int main()
         cout<<line<<endl;
         while (length>2)
         {
-                        num[last-1]-=num[last];
-                        last-=1;
-                        length-=1;
-                        for (int j = last; j>=head; j--)
-                        {
-                            if (num[j]<0)
-                            {
-                                num[j] = 10 + num[j];
-                                num[j-1] -=1;
-                            }
-                        }
-                        if (num[head] == 0)
-                        {
-                            head++;
-                            length-=1;
-                        }
-                        for (int i = head; i <= last; i++)
-                        {
-                            cout<<num[i];
-                        }
-                        cout<<endl;
+            num[last-1]-=num[last];
+            last-=1;
+            length-=1;
+            for (int j = last; j>=head; j--)
+            {
+                if (num[j]<0)
+                {
+                    num[j] = 10 + num[j];
+                    num[j-1] -=1;
+                }
+            }
+            while(num[head] <= 0)
+            {
+                head++;
+                length-=1;
+            }
+            for (int i = head; i <= last; i++)
+            {
+                cout<<num[i];
+            }
+            cout<<endl;
 
         }
         cout <<"The number ";
@@ -59,23 +59,7 @@ int main()
         {
             cout<<ori[i];
         }
-        int ans;
-        if (length == 1)
-        {
-            ans = num[last];
-        }
-        else
-        {
-            ans = num[head]*10+num[last];
-        }
-        if (ans >= 11 && ans % 11 ==0)
-        {
-            cout<<" is divisible by 11."<<endl;
-        }
-        else
-        {
-            cout<<" is not divisible by 11."<<endl;
-        }
+        c
     }
     return 0;
 }
