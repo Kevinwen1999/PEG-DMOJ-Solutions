@@ -59,7 +59,16 @@ int main()
         {
             cout<<ori[i];
         }
-        if ((num[head]*10+num[last])%11==0)
+        int ans;
+        if (length == 1)
+        {
+            ans = num[last];
+        }
+        else
+        {
+            ans = num[head]*10+num[last];
+        }
+        if (ans >= 11 && ans % 11 ==0)
         {
             cout<<" is divisible by 11."<<endl;
         }
