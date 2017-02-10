@@ -12,14 +12,12 @@ int mk(int radius)
     while (x < sze && houses[x] <= houses[0] + dia)
     {
         int cur = 1, y = x + 1;
-        if (y == sze) return 1;
-        int fin = houses[x+1];
-        cur++;
-        while (y < sze)
+        int fin = houses[x];
+        while (y < sze && houses[y]+dia-LEN < houses[x])
         {
-            if (houses[y] > fin + dia)
+            if (houses[y] > fin)
             {
-                fin = houses[y];
+                fin = houses[y] + dia;
                 cur++;
             }
             y++;
